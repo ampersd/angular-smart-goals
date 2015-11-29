@@ -1,14 +1,30 @@
 <!DOCTYPE html>
-<html ng-app>
+<html>
 
   <head>
-    <script data-require="angular.js@1.4.7" data-semver="1.4.7" src="https://code.angularjs.org/1.4.7/angular.js"></script>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
+    <script src="angular.min.js"></script>
+    <!--<script src="bootstrap.min.js"></script>-->
+    <script src="src/auth/login.js"></script>
+    <script src="src/app.js"></script>
+    <link rel="stylesheet" href="src/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="src/css/login.css" />
   </head>
 
-  <body>
+  <body ng-app="smartApp">
     {{1+1}}
+    <div class="container">
+        <div class="login-container" ng-controller="loginController as loginCtrl">
+            <div id="output"></div>
+            <div class="avatar"></div>
+            <div class="form-box">
+                <form name="loginForm" novalidate>
+                    <input ng-model="username" name="user" type="text" placeholder="{{loginCtrl.username}}username" required>
+                    <input ng-model="password" type="password" placeholder="{{loginCtrl.password}}password" required>
+                    <button class="btn btn-info btn-block login" type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
   </body>
 
 </html>
