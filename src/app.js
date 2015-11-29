@@ -8,4 +8,3 @@ app.controller('loginController', function(){
 		alert(username + " " + password);
 	};
 });
-);
