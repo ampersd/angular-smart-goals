@@ -2,12 +2,14 @@
 <html>
 
   <head>
+    <script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
     <script src="angular.min.js"></script>
     <script src="src/auth/login.js"></script>
     <script src="src/auth/register.js"></script>
     <script src="src/app.js"></script>
     <link rel="stylesheet" href="src/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="src/css/login.css" />
+    <link rel="stylesheet" href="src/css/auth.css" />
+    <link rel="icon" href="favicon.ico"/>
   </head>
 
   <body ng-app="smartApp">
@@ -17,6 +19,11 @@
         <login-form ng-show="appCtrl.view == 'login'"></login-form>
         <register-form ng-show="appCtrl.view == 'register'"></register-form>
 
+        <div ng-show="currentUser">
+          <h2>Welcome {{currentUser.get('username')}}</h2>
+          <p>You have been successfully logged in</p>
+          <button ng-click="logOut()">Log out</button>
+        </div>
       <button class="btn btn-info btn-block" ng-click="appCtrl.setView()">Click</button>
     </div>
   </body>

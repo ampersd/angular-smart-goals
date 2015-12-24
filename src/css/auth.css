@@ -4,7 +4,7 @@ html,body{
     height: 100%;
 }
 
-.login-container{
+.auth-container{
     position: relative;
     width: 300px;
     margin: 80px auto;
@@ -19,7 +19,7 @@ html,body{
     font-size: 20px;
 }
 
-.login-container::before,.login-container::after{
+.auth-container::before,.auth-container::after{
     content: "";
     position: absolute;
     width: 100%;height: 100%;
@@ -33,7 +33,7 @@ html,body{
 
 }
 
-.login-container::after{
+.auth-container::after{
     top: 5px;
     z-index: -2;
     -webkit-transform: rotateZ(-2deg);
