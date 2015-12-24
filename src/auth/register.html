@@ -1,0 +1,16 @@
+<div class="login-container" ng-controller="registerController as registerCtrl">
+    <div class="avatar"></div>
+    <div class="form-box">
+        <form name="registerForm" ng-submit="registerCtrl.submitForm(registerForm.$valid)" novalidate>
+            <div class="form-group" ng-class="{ 'has-error' : registerForm.user.$invalid && !registerForm.user.$pristine }">
+                <input class="form-control" ng-model="registerCtrl.username" name="user" type="text" placeholder="username" ng-minlength="3" ng-maxlength="8" required>
+                <input class="form-control" ng-model="registerCtrl.password" type="password" placeholder="password" required>
+            </div>
+            <button class="btn btn-info btn-block login" type="submit" ng-disabled="registerForm.$invalid">Register</button>
+            <div class="output">
+                <p ng-show="registerForm.user.$error.minlength">Username is too short.</p>
+                <p ng-show="registerForm.user.$error.maxlength">Username is too long.</p>
+            </div>
+        </form>
+    </div>
+</div>

@@ -4,6 +4,7 @@
   <head>
     <script src="angular.min.js"></script>
     <script src="src/auth/login.js"></script>
+    <script src="src/auth/register.js"></script>
     <script src="src/app.js"></script>
     <link rel="stylesheet" href="src/css/bootstrap.min.css" />
     <link rel="stylesheet" href="src/css/login.css" />
@@ -11,13 +12,12 @@
 
   <body ng-app="smartApp">
     {{1+1}}
-    {{loginCtrl.username}}
-    {{loginCtrl.password}}
-    {{loginCtrl.username.$invalid}}
-    {{loginCtrl.username.$pristine}}
-    <div class="container">
-            <login-form></login-form>
-        </div>
+    <div class="container" ng-controller="appController as appCtrl">
+      {{appCtrl.view}}
+        <login-form ng-show="appCtrl.view == 'login'"></login-form>
+        <register-form ng-show="appCtrl.view == 'register'"></register-form>
+
+      <button class="btn btn-info btn-block" ng-click="appCtrl.setView()">Click</button>
     </div>
   </body>
 
