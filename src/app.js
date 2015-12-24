@@ -1,12 +1,2 @@
-var app = angular.module('smartApp', []);
+var app = angular.module('smartApp', ['loginModule']);
 
-app.controller('loginController', function(){
-	this.username = "";
-	this.password = "";
-
-	this.submitForm = function(isValid){
-		if(isValid){
-			alert(this.username + " " + this.password);
-		}
-	};
-});

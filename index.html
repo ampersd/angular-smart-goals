@@ -3,6 +3,7 @@
 
   <head>
     <script src="angular.min.js"></script>
+    <script src="src/auth/login.js"></script>
     <script src="src/app.js"></script>
     <link rel="stylesheet" href="src/css/bootstrap.min.css" />
     <link rel="stylesheet" href="src/css/login.css" />
@@ -15,21 +16,7 @@
     {{loginCtrl.username.$invalid}}
     {{loginCtrl.username.$pristine}}
     <div class="container">
-        <div class="login-container" ng-controller="loginController as loginCtrl">
-            <div class="avatar"></div>
-            <div class="form-box">
-                <form name="loginForm" ng-submit="loginCtrl.submitForm(loginForm.$valid)" novalidate>
-                    <div class="form-group" ng-class="{ 'has-error' : loginForm.user.$invalid && !loginForm.user.$pristine }">
-                        <input class="form-control" ng-model="loginCtrl.username" name="user" type="text" placeholder="username" ng-minlength="3" ng-maxlength="8" required>
-                        <input class="form-control" ng-model="loginCtrl.password" type="password" placeholder="password" required>
-                    </div>
-                    <button class="btn btn-info btn-block login" type="submit" ng-disabled="loginForm.$invalid">Login</button>
-                    <div class="output">
-                        <p ng-show="loginForm.user.$error.minlength">Username is too short.</p>
-                        <p ng-show="loginForm.user.$error.maxlength">Username is too long.</p>
-                    </div>
-                </form>
-            </div>
+            <login-form></login-form>
         </div>
     </div>
   </body>
